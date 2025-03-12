@@ -9,14 +9,19 @@ class UserRepository extends BaseRepository implements RepositoryInterface
 {
     public function __construct(private User $model) {}
 
-    public function paginate($perPage = 10)
+    public function paginate(int $perPage = 10)
     {
         return $this->model->paginate($perPage);
     }
 
-    public function find($id)
+    public function find(int $id)
     {
         return $this->model->find($id);
+    }
+
+    public function findByEmail(string $email)
+    {
+        return $this->model->where('email', $email)->first();
     }
 
     public function create(array $data)
@@ -31,7 +36,7 @@ class UserRepository extends BaseRepository implements RepositoryInterface
         return $record->update($data);
     }
 
-    public function delete($id)
+    public function delete(int $id)
     {
         return $this->model->destroy($id);
     }
