@@ -4,8 +4,6 @@ namespace App\Repositories\Interfaces;
 
 interface RepositoryInterface
 {
-    public function all();
-
     public function paginate($perPage = 10);
 
     public function find($id);
