@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,8 @@ Route::prefix('v1')->group(function () {
     Route::post('/register', [AuthController::class, 'store'])->name('register');
 
     Route::middleware('auth:sanctum')->group(function () {
+        Route::apiResource('products', ProductController::class);
+
         Route::delete('/logout', [AuthController::class, 'destroy'])->name('logout');
     });
 
