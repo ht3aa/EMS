@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('cart_id')->constrained()->onDelete('cascade'); // Link to the user
             $table->unsignedTinyInteger('status')->default(0)->comment('0: pending, 1: shipped, 2: deliverd');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

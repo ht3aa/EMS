@@ -2,27 +2,38 @@
 
 namespace App\Models;
 
+use App\Models\Interfaces\QueryBuilderInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Order extends Model
+class Order extends Model implements QueryBuilderInterface
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id',
-        'total_amount',
+        'cart_id',
         'status',
     ];
 
-    // Relationships
-    public function user()
+    public function getAllowedFilters(): array
     {
-        return $this->belongsTo(User::class);
+        return [
+            'status',
+        ];
     }
 
-    public function orderItems()
+    public function getAllowedSorts(): array
     {
-        return $this->hasMany(OrderItem::class);
+        return [
+            'status',
+            'created_at',
+            'updated_at',
+        ];
+    }
+
+    public function cart()
+    {
+        return $this->belongsTo(Cart::class);
     }
 }

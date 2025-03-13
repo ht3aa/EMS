@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Cart;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,8 +19,7 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1, // Create a user if not provided
-            'cart_id' => $this->CartFactory(), // Total amount between 50 and 500
+            'cart_id' => Cart::factory(),
             'status' => $this->faker->randomElement([0, 1, 2]), // Random status
             'created_at' => now(),
             'updated_at' => now(),
