@@ -3,13 +3,14 @@
 namespace App\Services;
 
 use App\Repositories\CartRepository;
+use App\Repositories\ProductRepository;
 use App\Services\Interfaces\ControllerInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CartService implements ControllerInterface
 {
-    public function __construct(private CartRepository $cartRepository, private ResponseService $responseService) {}
+    public function __construct(private CartRepository $cartRepository, private ProductRepository $productRepository, private ResponseService $responseService) {}
 
     public function index() {}
 
@@ -19,7 +20,7 @@ class CartService implements ControllerInterface
         $quantity = $request->quantity;
 
         // get the product
-        $product = $this->cartRepository->find($request->product_id);
+        $product = $this->productRepository->find($request->product_id);
 
         // check if product is already in the cart
         $cart = Auth::user()->carts()->where('product_id', $request->product_id)->first();

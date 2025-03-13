@@ -18,5 +18,7 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'loged_in' => 'User logged in successfully.',
     'loged_out' => 'User logged out successfully.',
+    'not_found' => 'User not found',
+    'unathorized' => 'User unathorized',
 
 ];

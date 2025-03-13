@@ -19,7 +19,7 @@ class BaseRepository implements RepositoryInterface
         return QueryBuilder::for($this->modelClass)
             ->allowedFilters($this->model->getAllowedFilters())
             ->allowedSorts($this->model->getAllowedSorts())
-            ->paginate();
+            ->paginate($perPage);
 
     }
 
@@ -42,6 +42,6 @@ class BaseRepository implements RepositoryInterface
 
     public function delete(int $id)
     {
-        return $this->model->destroy($id);
+        return $this->model->delete($id);
     }
 }

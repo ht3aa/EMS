@@ -12,7 +12,10 @@ class AuthService implements ControllerInterface
 {
     public function __construct(private UserRepository $userRepository, private ResponseService $responseService) {}
 
-    public function index() {}
+    public function index()
+    {
+        return $this->responseService->error(__('auth.unathorized'), 401);
+    }
 
     public function show(Request $request)
     {

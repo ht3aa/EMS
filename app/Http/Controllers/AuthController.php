@@ -9,6 +9,11 @@ class AuthController extends Controller
 {
     public function __construct(private AuthService $authService) {}
 
+    public function index()
+    {
+        return $this->authService->index();
+    }
+
     /**
      * Store a newly created resource in storage.
      */

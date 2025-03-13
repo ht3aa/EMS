@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
     // auth routes
-    Route::post('/login', [AuthController::class, 'show'])->name('login');
+    Route::get('/login', [AuthController::class, 'index'])->name('login');
+    Route::post('/login', [AuthController::class, 'show']);
     Route::post('/register', [AuthController::class, 'store'])->name('register');
 
     Route::middleware('auth:sanctum')->group(function () {
@@ -22,7 +23,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('carts', CartController::class);
         Route::apiResource('orders', OrderController::class);
 
-        Route::delete('/logout', [AuthController::class, 'destroy'])->name('logout');
+        Route::delete('/logout/{id}', [AuthController::class, 'destroy'])->name('logout');
     });
 
 });
