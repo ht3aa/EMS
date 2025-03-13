@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Interfaces\QueryBuilderInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Cart extends Model implements QueryBuilderInterface
 {
     use HasFactory;
 
@@ -14,6 +15,24 @@ class Cart extends Model
         'product_id',
         'quantity',
     ];
+
+    public function getAllowedFilters(): array
+    {
+        return [
+            'user_id',
+            'product_id',
+            'quantity',
+        ];
+    }
+
+    public function getAllowedSorts(): array
+    {
+        return [
+            'user_id',
+            'product_id',
+            'quantity',
+        ];
+    }
 
     // Relationships
     public function user()

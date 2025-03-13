@@ -19,7 +19,7 @@ class CartFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => 1, // Create a user if not provided
+            'user_id' => User::where('email', 'admin@admin.com')->first()->id, // Create a user if not provided
             'product_id' => Product::factory(), // Create a product if not provided
             'quantity' => $this->faker->numberBetween(1, 5), // Quantity between 1 and 5
             'created_at' => now(),

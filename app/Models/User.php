@@ -64,4 +64,9 @@ class User extends Authenticatable implements QueryBuilderInterface
             'email',
         ];
     }
+
+    public function carts()
+    {
+        return $this->hasMany(Cart::class);
+    }
 }
