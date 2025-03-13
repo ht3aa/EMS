@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatusEnum;
 use App\Models\Interfaces\QueryBuilderInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -31,6 +32,10 @@ class Order extends Model implements QueryBuilderInterface
             'updated_at',
         ];
     }
+
+    protected $casts = [
+        'status' => OrderStatusEnum::class,
+    ];
 
     public function cart()
     {
