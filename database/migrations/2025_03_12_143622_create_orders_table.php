@@ -10,9 +10,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Link to the user
-            $table->decimal('total_amount', 8, 2); // Total amount of the order
-            $table->string('status')->default('pending'); // Order status (e.g., pending, completed, cancelled)
+            $table->foreignId('cart_id')->constrained()->onDelete('cascade'); // Link to the user
+            $table->string('status')->default(0)->comment('0: pending, 1: shipped, 2: deliverd'); // Order status (e.g., pending, completed, cancelled)
             $table->timestamps();
         });
     }
