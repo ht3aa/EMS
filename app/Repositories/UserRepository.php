@@ -10,4 +10,9 @@ class UserRepository extends BaseRepository
     {
         parent::__construct(User::class);
     }
+
+    public function findByEmail(string $email)
+    {
+        return $this->model->where('email', $email)->first();
+    }
 }
