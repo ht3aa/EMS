@@ -3,12 +3,15 @@
 namespace App\Services;
 
 use App\Repositories\CartRepository;
+use App\Services\Interfaces\ControllerInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CartService
+class CartService implements ControllerInterface
 {
     public function __construct(private CartRepository $cartRepository, private ResponseService $responseService) {}
+
+    public function index() {}
 
     public function store(Request $request)
     {
@@ -49,5 +52,17 @@ class CartService
 
         // return the created cart
         return $this->responseService->created($cart, __('cart.created'));
+    }
+
+    public function show(Request $request) {}
+
+    public function update(Request $request, string $id) {}
+
+    public function destroy(string $id)
+    {
+        // delete the cart
+        $this->cartRepository->delete($id);
+
+        return $this->responseService->success(null, __('cart.deleted'));
     }
 }

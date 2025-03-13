@@ -53,7 +53,6 @@ class CartController extends Controller
      */
     public function destroy(string $id)
     {
-        // delete the cart
-        $this->cartRepository->delete($id);
+        return $this->cartService->destroy($id);
     }
 }
