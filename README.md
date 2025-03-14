@@ -24,3 +24,7 @@ visit the following link to see the admin panel
 ```php
 http://localhost:8000/admin
 ```php
+
+
+## API
+Checkout Postman collection for the API. file name: `EMS.postman_collection.json`
