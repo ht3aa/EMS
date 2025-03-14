@@ -23,7 +23,7 @@ password: password
 visit the following link to see the admin panel
 ```php
 http://localhost:8000/admin
-```php
+```
 
 
 ## API
