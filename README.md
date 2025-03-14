@@ -17,3 +17,10 @@ php artisan migrate --seed
 email: admin@admin.com
 password: password
 ```
+
+
+## Filament
+visit the following link to see the admin panel
+```php
+http://localhost:8000/admin
+```php

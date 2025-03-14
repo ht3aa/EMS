@@ -21,8 +21,8 @@ class OrderFactory extends Factory
         return [
             'cart_id' => Cart::factory(),
             'status' => $this->faker->randomElement([0, 1, 2]), // Random status
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'updated_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
         ];
     }
 }

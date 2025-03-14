@@ -34,4 +34,11 @@ return [
         'shipped' => 'Shipped Orders',
         'delivered' => 'Delivered Orders',
     ],
+    'stats' => [
+        'total' => 'Total Orders',
+    ],
+
+    'charts' => [
+        'orders_per_month' => 'Orders per months',
+    ],
 ];

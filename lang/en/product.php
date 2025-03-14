@@ -13,4 +13,7 @@ return [
         'stock' => 'Stock',
         'description' => 'Description',
     ],
+    'stats' => [
+        'total' => 'Total Products',
+    ],
 ];

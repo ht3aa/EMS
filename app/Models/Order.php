@@ -35,6 +35,8 @@ class Order extends Model implements QueryBuilderInterface
 
     protected $casts = [
         'status' => OrderStatusEnum::class,
+        'created_at' => 'date',
+        'updated_at' => 'datetime',
     ];
 
     public function cart()

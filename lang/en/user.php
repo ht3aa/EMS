@@ -10,4 +10,7 @@ return [
         'name' => 'Name',
         'email' => 'Email',
     ],
+    'stats' => [
+        'total' => 'Total Users',
+    ],
 ];
